@@ -1,0 +1,30 @@
+<h1>Join quizmatic</h1>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :display_name %><br>
+    <%= f.text_field :display_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Join" %>
+  </div>
+
+  <p>Quizmatic uses passwordless authentication, so you don't need to provide or remember yet another password. When you join, we'll send an email to you, and you'll login to Quizmatic through a unique link provided in that email.</p>
+<% end %>
+

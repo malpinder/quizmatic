@@ -1,0 +1,17 @@
+<h1>Log in</h1>
+
+<%= form_tag session_request_path do %>
+
+  <div class="field">
+    <%= label_tag :email %><br>
+    <%= text_field_tag :email %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Send login link" %>
+  </div>
+
+  <p>Quizmatic uses passwordless authentication, so you don't need to provide or remember yet another password. Tell us your email address and we'll send a unique login link to you.</p>
+
+  <p>Don't have an account? <%= link_to 'Join!', new_user_path %></p>
+<% end %>
+

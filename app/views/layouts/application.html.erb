@@ -8,6 +8,15 @@
 </head>
 <body>
 
+<% if logged_in? %>
+  <%= button_to 'Log out', session_path, method: :delete %>
+<% else %>
+  <%= link_to 'Join', new_user_path %>
+  <%= link_to 'Log in', new_session_request_path %>
+<% end %>
+
+<div><%= flash[:notice] %></div>
+
 <%= yield %>
 
 </body>
