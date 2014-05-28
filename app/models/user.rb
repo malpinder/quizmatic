@@ -2,6 +2,8 @@ require './lib/tokenisable'
 
 class User < ActiveRecord::Base
 
+  has_many :quizzes
+
   include Tokenisable
 
   def generate_login_token!
