@@ -1,6 +1,6 @@
-<h1>Adding a question to '<%= @quiz.title %>'</h1>
+<h1>Adding a question to '<%= quiz.title %>'</h1>
 
-<%= form_for([@quiz, @question]) do |f| %>
+<%= form_for([quiz, @question]) do |f| %>
   <% if @question.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="field">
-    <p>This quiz currently has <%= pluralize @quiz.questions.count, 'questions' %>
+    <p>This quiz currently has <%= pluralize quiz.questions.count, 'questions' %>
     <%= f.label :position %><br>
     <%= f.number_field :position %>
   </div>

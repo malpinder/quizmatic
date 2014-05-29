@@ -1,5 +1,7 @@
 class QuizzesController < ApplicationController
 
+  before_filter :authenticate!
+
   def new
     @quiz = Quiz.new
   end
@@ -15,7 +17,8 @@ class QuizzesController < ApplicationController
   end
 
   def show
-    @quiz = current_user.quizzes.find(params[:id])
+    @quiz = Quiz.find(params[:id])
+    redirect_to new_session_request_path unless @quiz.user == current_user
   end
 
   private

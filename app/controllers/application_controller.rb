@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
   helper_method :logged_in?
+
+  private
+
+  def authenticate!
+    unless logged_in?
+      redirect_to new_session_request_path, warning: "You must be logged in to do that."
+    end
+  end
 end
