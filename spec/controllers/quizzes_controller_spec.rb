@@ -7,6 +7,7 @@ describe QuizzesController do
 
   let(:valid_show_params) { {id: quiz.id} }
   let(:valid_create_params) { {quiz: FactoryGirl.attributes_for(:quiz)} }
+  let(:valid_update_params) { {id: quiz.id, quiz: {published: true}} }
   let(:valid_session) { { user_token: current_user.session_token } }
 
   describe "as a guest user" do
@@ -16,6 +17,7 @@ describe QuizzesController do
         expect(response).to redirect_to(new_session_request_path)
       end
     end
+
     describe "POST #create" do
       it "redirects to the log in page" do
         post :create, valid_create_params
@@ -26,6 +28,13 @@ describe QuizzesController do
     describe "GET #show" do
       it "redirects to the log in page" do
         get :show, valid_show_params
+        expect(response).to redirect_to(new_session_request_path)
+      end
+    end
+
+    describe "PUT #update" do
+      it "redirects to the log in page" do
+        put :update, valid_update_params
         expect(response).to redirect_to(new_session_request_path)
       end
     end
@@ -53,6 +62,14 @@ describe QuizzesController do
         expect(response).to render_template :show
       end
     end
+
+    describe "PUT #update" do
+      it "redirects to back" do
+        request.env["HTTP_REFERER"] = '/'
+        put :update, valid_update_params, valid_session
+        expect(response).to redirect_to '/'
+      end
+    end
   end
 
   describe "as a different user" do
@@ -62,6 +79,13 @@ describe QuizzesController do
     describe "GET #show" do
       it "redirects to the log in page" do
         get :show, valid_show_params, invalid_session
+        expect(response).to redirect_to(new_session_request_path)
+      end
+    end
+
+    describe "PUT #update" do
+      it "redirects to the log in page" do
+        put :update, valid_update_params, invalid_session
         expect(response).to redirect_to(new_session_request_path)
       end
     end

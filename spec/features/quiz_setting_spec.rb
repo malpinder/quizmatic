@@ -27,7 +27,11 @@ feature "Setting a quiz" do
 
     visit '/'
     expect(page).to have_content "My first quiz"
-    expect(page).to have_content "Unpublished"
+    expect(page).to have_button "Publish"
+
+    click_button "Publish"
+    expect(page).to have_content "Quiz updated"
+    expect(page).to have_button "Unpublish"
   end
 
 
