@@ -9,6 +9,7 @@
 <body>
 
 <% if logged_in? %>
+  Welcome, <%= current_user.display_name %>.
   <%= button_to 'Log out', session_path, method: :delete %>
 <% else %>
   <%= link_to 'Join', new_user_path %>
@@ -16,6 +17,7 @@
 <% end %>
 
 <div><%= flash[:notice] %></div>
+<div><%= flash[:warning] %></div>
 
 <%= yield %>
 

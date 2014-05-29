@@ -41,6 +41,7 @@ feature "User management" do
     visit link.path
 
     expect(page).to have_content "You have been logged in."
+    expect(page).to have_content "Welcome, #{user.display_name}."
   end
 
   scenario "logging out" do

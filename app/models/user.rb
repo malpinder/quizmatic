@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
     save!
   end
 
-  def clear_login_token!
+  def reset_login_tokens!
     self.login_token = nil
+    generate_token :session_token
     save!
   end
 
