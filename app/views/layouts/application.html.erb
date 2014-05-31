@@ -7,14 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if logged_in? %>
-  Welcome, <%= current_user.display_name %>.
-  <%= button_to 'Log out', session_path, method: :delete %>
-<% else %>
-  <%= link_to 'Join', new_user_path %>
-  <%= link_to 'Log in', new_session_request_path %>
-<% end %>
+  <nav id="nav">
+    <ul>
+      <li><%= link_to "Quizmatic", root_path %></li>
+      <li id="session">
+        <% if logged_in? %>
+          Welcome, <%= current_user.display_name %>.
+          <%= button_to 'Log out', session_path, method: :delete, class: "btn", form_class: "inline" %>
+        <% else %>
+          <%= link_to 'Log in', new_session_request_path, class: "btn" %>
+          or
+          <%= link_to 'Join', new_user_path, class: "btn" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
 
 <div><%= flash[:notice] %></div>
 <div><%= flash[:warning] %></div>

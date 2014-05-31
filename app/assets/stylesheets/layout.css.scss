@@ -1,0 +1,67 @@
+// Styles for the general layout.
+
+// $mid_green: #5AE848;
+// $light_green: #7AFF68;
+// $dark_green: #528F4A;
+// $purple: #BA1482;
+// $pink: #EB53B7;
+
+// pastels!
+$mid_green: #8CE87A;
+$light_green: #AFFF9F;
+$dark_green: #6F8F68;
+$purple: #BA3C9A;
+$pink: #EB85D1;
+
+// darker!
+// $mid_green: #3CBA1B;
+// $light_green: #66D449;
+// $dark_green: #2F6122;
+// $purple: #8C006F;
+// $pink: #BE249E;
+
+#nav {
+  border: 1px solid $dark_green;
+  border-radius: 0px 0px 6px 6px;
+  background-color: $mid_green;
+
+
+  /* fallback */
+  background-color: $mid_green;
+  background-image: -webkit-linear-gradient(top, $light_green, $mid_green); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image:         linear-gradient(to bottom, $light_green, $mid_green); /* Chrome 26, Firefox 16+, IE 10+, Opera */
+
+
+  li {
+    height: 50px;
+    padding: 15px;
+    float: left;
+  }
+  li#session {
+    float: right;
+  }
+
+}
+
+//  todo: misc, move elsewhere
+
+ form.inline {
+  display: inline-block;
+ }
+
+.btn {
+  -moz-user-select: none;
+  border: 1px solid $purple;
+  background-color: $pink;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+}

@@ -1,0 +1,67 @@
+// Set up grid system.
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  /* Removes padding behaviour on widths */
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Attribute selector */
+[class*='col-'] {
+  float: left;
+}
+
+/* Floats last ".col-" to the right */
+[class*='col-']:last-of-type {
+  float: right;
+}
+
+/* Clearfix */
+.row:after, #nav:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Main Widths */
+// Based on the golden ratio / fibonnaci sequence.
+// |---------21---------|
+// |--------13--|---8---|
+// |---8---|--5-|--5-|-3|
+// |--5-|-3|-3|-|-3|-|-||
+
+
+$full: 100%;
+$slice: $full / 21;
+
+/* Desktop */
+@media (min-width: 980px) {
+  .col-21 { width: $full; }
+  .col-13 { width: $slice * 13; }
+  .col-8  { width: $slice * 8; }
+  .col-5  { width: $slice * 5; }
+  .col-3  { width: $slice * 3; }
+  .col-2  { width: $slice * 2; }
+  .col-1  { width: $slice; }
+}
+
+/* Landscape phone to landscape and desktop */
+@media (min-width: 481px) and (max-width: 979px) {
+  .col-21 { width: $full; }
+  .col-13 { width: $full; }
+  .col-8  { width: $full; }
+  .col-5  { width: $slice * 13; }
+  .col-3  { width: $slice * 8; }
+  .col-2  { width: $slice * 5; }
+  .col-1  { width: $slice * 3; }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+  [class*='col-'] { width: $full; }
+}
