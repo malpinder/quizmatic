@@ -1,23 +1,42 @@
-<h1>Quizmatic</h1>
 
-<% if logged_in? %>
-  <h3>Quizzes you've set</h3>
+<section class="col-13">
+  <h1>Quizmatic</h1>
+
+
+  <p>Here goes words about what this site is.</p>
+  <p>Maybe once you are logged in there can be some stats here.</p>
+</section>
+
+<section class="col-8">
+  <% if logged_in? %>
+    <h3>Quizzes you've set</h3>
+    <table>
+      <% current_user.quizzes.each do |quiz| %>
+        <tr>
+          <td><%= quiz.title %></td>
+          <td><%= pluralize quiz.questions.count, "questions" %></td>
+          <td>
+            <%= button_to_toggle_published(quiz) %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <%= link_to "Set new quiz", new_quiz_path %>
+  <% end %>
+
+  <hr/>
+
+  <h3>Quizzes you've taken</h3>
   <table>
-    <% current_user.quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.title %></td>
-        <td><%= pluralize quiz.questions.count, "questions" %></td>
-        <td>
-          <%= button_to_toggle_published(quiz) %>
-        </td>
-      </tr>
-    <% end %>
+    <tr>
+      <td>None</td>
+      <td>This is a placeholder</td>
+      <td>
+        Hooray
+      </td>
+    </tr>
   </table>
-<% end %>
-
-<%= link_to "Set new quiz", new_quiz_path %>
-
-
+</section>
 
 
 <!--

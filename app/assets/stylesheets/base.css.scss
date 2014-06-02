@@ -1,0 +1,37 @@
+// Base styles for use across the entire app.
+
+@import "variables";
+
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Lobster);
+
+body { font-family: 'Roboto Slab', "Trebuchet MS", serif; }
+
+.logo {
+  font-family: 'Lobster', "Comic Sans", cursive;
+  font-size: 42px;
+  line-height: 42px;
+  color: $purple;
+
+  a {
+    style: none;
+  }
+}
+
+table {
+
+  // padding: 21px;
+  // border: 1px solid $dark_green;
+  // border-radius: 6px;
+
+  // background-color: $mid_green;
+}
+
+table > thead > tr > th {
+  border-bottom: 2px solid $purple
+}
+
+table > tbody > tr > td {
+  border-bottom: 1px solid $purple;
+  vertical-align: top;
+  padding: 8px;
+}

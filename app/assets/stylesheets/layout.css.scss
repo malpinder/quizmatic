@@ -1,46 +1,56 @@
 // Styles for the general layout.
 
-// $mid_green: #5AE848;
-// $light_green: #7AFF68;
-// $dark_green: #528F4A;
-// $purple: #BA1482;
-// $pink: #EB53B7;
+@import "variables";
 
-// pastels!
-$mid_green: #8CE87A;
-$light_green: #AFFF9F;
-$dark_green: #6F8F68;
-$purple: #BA3C9A;
-$pink: #EB85D1;
-
-// darker!
-// $mid_green: #3CBA1B;
-// $light_green: #66D449;
-// $dark_green: #2F6122;
-// $purple: #8C006F;
-// $pink: #BE249E;
+// body { max-width: 1140px; margin: auto; }
 
 #nav {
+  padding: 0px 21px 0px 21px;
   border: 1px solid $dark_green;
   border-radius: 0px 0px 6px 6px;
-  background-color: $mid_green;
 
-
-  /* fallback */
-  background-color: $mid_green;
+  background-color: $mid_green; /* fallback */
   background-image: -webkit-linear-gradient(top, $light_green, $mid_green); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
   background-image:         linear-gradient(to bottom, $light_green, $mid_green); /* Chrome 26, Firefox 16+, IE 10+, Opera */
 
-
-  li {
-    height: 50px;
-    padding: 15px;
+  .logo {
+    padding: 10px 15px;
     float: left;
   }
-  li#session {
+
+  #session {
+    padding: 15px;
     float: right;
   }
+}
 
+@media (max-width: $landscape-phones) {
+  #nav .logo { float: none; }
+  #nav #session { width: 100%; }
+}
+
+.flash {
+  border-radius: 6px;
+  padding: 16px 20px;
+  margin-bottom: 21px;
+}
+
+.flash.notice {
+  background-color: $light_green;
+  border: 1px solid $mid-green;
+  color: $dark-green;
+}
+
+.flash.warning {
+  background-color: $red;
+  border: 1px solid $dark-pink;
+  color: $dark-purple;
+}
+
+#content {
+  max-width: 1140px;
+  margin: auto;
+  padding: 21px;
 }
 
 //  todo: misc, move elsewhere
@@ -53,6 +63,8 @@ $pink: #EB85D1;
   -moz-user-select: none;
   border: 1px solid $purple;
   background-color: $pink;
+  color: black;
+  text-decoration: none;
   border-radius: 6px;
   cursor: pointer;
   display: inline-block;
@@ -64,4 +76,15 @@ $pink: #EB85D1;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
+}
+
+.btn:hover, .btn:active, .btn:focus {
+  border: 1px solid $dark-purple;
+  background-color: $dark-pink;
+}
+
+.btn:active {
+  -moz-box-shadow:     0 3px 15px -5px $dark-purple inset;
+  -webkit-box-shadow:  0 3px 15px -5px $dark-purple inset;
+  box-shadow:          0 3px 15px -5px $dark-purple inset;
 }

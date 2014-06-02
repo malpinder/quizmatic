@@ -1,5 +1,7 @@
 // Set up grid system.
 
+@import "variables";
+
 *,
 *:after,
 *:before {
@@ -40,7 +42,7 @@ $full: 100%;
 $slice: $full / 21;
 
 /* Desktop */
-@media (min-width: 980px) {
+@media (min-width: $desktop) {
   .col-21 { width: $full; }
   .col-13 { width: $slice * 13; }
   .col-8  { width: $slice * 8; }
@@ -50,18 +52,18 @@ $slice: $full / 21;
   .col-1  { width: $slice; }
 }
 
-/* Landscape phone to landscape and desktop */
-@media (min-width: 481px) and (max-width: 979px) {
+/* Landscape phone to tablet and desktop */
+@media (min-width: ($landscape-phones + 1)) and (max-width: ($desktop - 1)) {
   .col-21 { width: $full; }
-  .col-13 { width: $full; }
-  .col-8  { width: $full; }
-  .col-5  { width: $slice * 13; }
-  .col-3  { width: $slice * 8; }
+  .col-13 { width: $slice * 13; }
+  .col-8  { width: $slice * 8; }
+  .col-5  { width: $slice * 5; }
+  .col-3  { width: $slice * 5; }
   .col-2  { width: $slice * 5; }
   .col-1  { width: $slice * 3; }
 }
 
 /* Landscape phones and down */
-@media (max-width: 480px) {
+@media (max-width: $landscape-phones) {
   [class*='col-'] { width: $full; }
 }

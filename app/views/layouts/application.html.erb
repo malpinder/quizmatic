@@ -8,25 +8,25 @@
 </head>
 <body>
   <nav id="nav">
-    <ul>
-      <li><%= link_to "Quizmatic", root_path %></li>
-      <li id="session">
-        <% if logged_in? %>
-          Welcome, <%= current_user.display_name %>.
-          <%= button_to 'Log out', session_path, method: :delete, class: "btn", form_class: "inline" %>
-        <% else %>
-          <%= link_to 'Log in', new_session_request_path, class: "btn" %>
-          or
-          <%= link_to 'Join', new_user_path, class: "btn" %>
-        <% end %>
-      </li>
-    </ul>
+    <div class="logo"><%= link_to "Quizmatic", root_path %></div>
+    <div id="session">
+      <% if logged_in? %>
+        Welcome, <%= current_user.display_name %>.
+        <%= button_to 'Log out', session_path, method: :delete, class: "btn", form_class: "inline" %>
+      <% else %>
+        <%= link_to 'Log in', new_session_request_path, class: "btn" %>
+        or
+        <%= link_to 'Join', new_user_path, class: "btn" %>
+      <% end %>
+    </div>
   </nav>
 
-<div><%= flash[:notice] %></div>
-<div><%= flash[:warning] %></div>
+  <section id="content">
+    <%= render_flash(:notice) %>
+    <%= render_flash(:warning) %>
 
-<%= yield %>
+    <%= yield %>
+  </section>
 
 </body>
 </html>

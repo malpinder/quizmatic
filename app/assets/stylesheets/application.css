@@ -12,6 +12,8 @@
  *
  *= require 'reset'
  *= require 'grid'
+ *= require 'base'
  *= require_tree .
  *= require_self
  */
+

@@ -7,4 +7,7 @@ module ApplicationHelper
     button_to(new_state, quiz_path(quiz, quiz: {published: !quiz.published}), method: :patch)
   end
 
+  def render_flash(level)
+    content_tag(:div, flash[level], class: "flash #{level}") if flash[level]
+  end
 end
